@@ -209,31 +209,91 @@ Pada menu values :
 '''
 Strings.xml
 <resources>
-    <string name="app_name">ProjectZulaeha</string>
-    <string name="Hello_World">Hello World!!</string>
+    <string name="app_name">Mobile A5</string>
+    <string name="Kabar">Hello, Bagaimana Kabarmu Hari Ini?</string>
+
+    <string name="Button_label_toast">Toast</string>
+    <string name="Button_label_count">Hitung</string>
+    <string name="count_initial_value">0</string>
+    <string name="toast_message">Keren njirr</string>
+
+    <string name="articel_title">Kasus Sianida</string>
+    <string name="articel_subtitle">ICE COLD!</string>
+    <string name="articel_text">In a vault deep inside Abbey Road Studios in London — protected by
+        an unmarked,triple-locked, police-alarmed door — are something like 400 hours of unreleased
+        Beatles recordings,starting from June 2, 1962 and ending with the very last tracks recorded
+        for the Let It Be album.The best of the best were released by Apple Records in the form of
+        the 3-volume Anthology series.For more information, see the Beatles Time Capsule at
+        www.rockument.com. \n\n
+
+        This volume starts with the first new Beatle song, “Free as a Bird” (based on a John Lennon
+        demo,found only on The Lost Lennon Tapes Vol. 28, and covers the very earliest historical
+        recordings,outtakes from the first albums, and live recordings from early concerts and BBC
+        Radio sessions. \n\n
+
+        Highlights include: \n\n
+
+        Cry for a Shadow – Many a Beatle fanatic started down the outtake road, like I did,
+        with a first listen to this song. Originally titled “Beatle Bop” and recorded in a single
+        session that yielded four songs (the other three featured Tony Sheridan with the Beatles as
+        a backing band),“Cry for a Shadow” is an instrumental written by Lennon and Harrison, which
+        makes it unique to this day.John Lennon plays rhythm guitar, George Harrison plays lead
+        guitar, Paul McCartney plays bass,and Pete Best plays drums. The sessions were produced by
+        Bert Kaempfert in Hamburg, Germany,during the Beatles’ second visit from April through July
+        of 1961 to play in the Reeperbahn-section clubs. \n\n
+
+        My Bonnie and Ain’t She Sweet — At the same session, the Beatles played on “My Bonnie”
+        (the first-ever single with Beatles playing), as the backing band for English singer Tony
+        Sheridan,originally a member of the Jets. The popularity of this single in Liverpool brought
+        the Beatles to the attention of Brian Epstein, who worked in the NEMS record store and tried
+        to meet demand for the disc. John Lennon then sings a fine “Ain’t She Sweet” (his first-ever
+        released vocal). \n\n
+
+        Searchin — A Jerry Leiber – Mike Stoller comedy song that was a hit for the Coasters in 1957
+        ,and a popular live favorite of the Beatles. The Coasters also had a hit with “Besame Mucho”
+        and the Beatles covered that song as well. Ringo Starr had by now replaced Pete Best on
+        drums.The high falsetto is George, who also plays a hesitant lead guitar. This is from their
+        first audition for Decca Records in London on Jan 1., 1962, live in the studio. The Grateful
+        Dead would later cover“Searchin” with a similar arrangement, Pigpen doing the Paul vocals.
+        A live version is available onouttake records featuring the Dead joined by the Beach Boys!
+        \n\n
+
+        Love Me Do — An early version of the song, played a bit slower and with more of a blues
+        feeling, and a cool bossa-nova beat in middle. Paul had to sing while John played harmonica
+        a first for the group.Pete Best played drums on this version. \n\n
+
+        She Loves You – Till There Was You – Twist and Shout — Live at the Princess Wales Theatre by
+        Leicester Square in London, attended by the Queen. “Till There Was You” (by Meredith Wilson)
+        is from the musical The Music Man and a hit for Peggy Lee in 1961. Before playing it,
+        Paul said it was recorded by his favorite American group, “Sophie Tucker” (which got some
+        laughs).At the end, John tells the people in the cheaper seats to clap their hands, and the
+        rest to “rattle your jewelry” and then announces “Twist and Shout” (a song by Bert Russell
+        and Phil Medley that was first recorded in 1962 by the Isley Brothers). A film of the
+        performance shows the Queen smiling at John’s remark. \n\n
+
+        Leave My Kitten Alone — One of the lost Beatle songs recorded during the “Beatles For Sale”
+        sessions but never released.This song, written by Little Willie John, Titus Turner, and
+        James McDougal, was a 1959 R and B hit for Little Willie John and covered by Johnny Preston
+        before the Beatles tried it and shelved it. A reference to a “big fat bulldog” may have
+        influenced John’s “Hey Bulldog” (Yellow Submarine album), which is a similar rocker. \n\n
+
+        One After 909 — A song recorded for the ¨C11C album was actually worked on way back in the
+        beginning,six years earlier. This take shows how they did it much more slowly, with an
+        R and B feel to it.Posted on October 7, 2023Leave a comment on PROJECT SCROLLING TEXT
+    </string>
     <string name="button_main">Send</string>
-    <string name="editText_main">Enter Your Message Here</string>
-    <string name="text_header">Message Received</string>
-    <string name="buttton_second">Reply</string>
-    <string name="editText_second">Enter Your Reply Here</string>
+    <string name="edittext_main">Send</string>
+    <string name="text_header">Enter your message here</string>
+    <string name="button_second">Reply</string>
+    <string name="edittext_second">Enter your reply here</string>
     <string name="text_header_reply">Reply Received</string>
-    <string name="button_label_toast">Toast</string>
-    <string name="button_label_count">Count</string>
-    <string name="count_initial_value">1</string>
-    <string name="toast_massage">Hello Toast!</string>
-    <string name="button_label_restart">Restart</string>
-    <string name="enter_fibonacci_limit">Masukkan Angka Limit</string>
-    <string name="article_title"> Kasus Sianida</string>
-    <string name="article_subtitle">ICE COLD!</string>
-    <string name="article_text"> Film dokumenter Ice Cold: Murder, Coffee and Jessica Wongso memaparkan pertanyaan tak terjawab tentang persidangan yang dilalui Jessica Wongso. Dengan menyajikan perspektif baru, film ini hadir bertahun-tahun setelah kematian sahabat Jessica, Wayan Mirna Salihin.
-Film ini menggambarkan bagaimana Jessica yang mengajak teman-temannya, termasuk Mirna, untuk bertemu setelah sekian lama tak berjumpa. Pertemuan di salah satu kafe di mal ibu kota tersebut pun berlangsung lancar, sebelum akhirnya Mirna pingsan sesaat setelah meminum kopi yang sebelumnya dipesan Jessica.Dokumenter ini turut menyajikan rekaman CCTV pada waktu kejadian, berbagai footage berita saat persidangan berlangsung, hingga wawancara eksklusif dengan beberapa sumber, termasuk Jessica Wongso.
-Persidangan atas dugaan pembunuhan Mirna Salihin digelar lima bulan setelah kematiannya. Sidang tersebut melalui 32 kali persidangan dengan menghadirkan puluhan saksi di pengadilan. Hasilnya, Jessica Wongso divonis bersalah atas kematian Mirna dan dijatuhi hukuman 20 tahun penjara.
-Kasus yang berjalan cukup lama tersebut menyita banyak perhatian dari masyarakat Indonesia. Musababnya, banyak misteri tak terjawab selama rangkaian persidangan yang panjang tersebut. Salah satunya adalah mengenai akses untuk mendapatkan bubuk sianida yang tidak bisa didapatkan oleh orang sembarangan. Selain itu, motif Jessica di balik pembunuhan tersebut pun belum menemukan jawabannya.
-Film dokumenter buatan Netflix ini menyoroti rangkaian persidangan yang saat itu menjadi sidang pertama yang disiarkan secara langsung di berbagai stasiun televisi Indonesia. Selain itu, kasus ini juga diliput secara intens oleh media massa, baik nasional maupun internasional.Tak hanya itu, pihak rumah produksi Beach House Pictures juga berhasil mendapatkan akses untuk mewawancarai Jessica Wongso secara langsung dari balik tahanan. Dalam video trailer yang diluncurkannya, ditampilkan juga sejumlah wawancara eksklusif yang dilakukan dengan beberapa narasumber. Mulai dari ayah dan saudara kembar  Mirna Salihin, pengacara Jessica Wongso, jurnalis yang mendalami kasus tersebut, hingga bagaimana saat itu kasus ini begitu ramai diberitakan oleh media massa Indonesia dan internasional.</string>
+    <string name="Back">Reset</string>
+    <string name="editText_main">Enter Your Message</string>
+    <string name="editText_second">Enter Your Reply</string>
 </resources>
 
-Colors.xml
 '''
+Colors.xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
@@ -254,15 +314,15 @@ Colors.xml
     <color name="soft">#AED9EA</color>
     <color name="pastel">#5E96AE</color>
 </resources>
-Dimens.xml
 '''
+Dimens.xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="padding_regular">10dp</dimen>
     <dimen name="line_spacing">5sp</dimen>
 </resources>
 Pada menu themes :
-
+'''
 themes.xml
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
@@ -271,6 +331,7 @@ themes.xml
         <item name="android:statusBarColor">?attr/colorOnPrimary</item>
     </style>
 </resources>
+'''
 Pada menu drawable :
 
 backgroundlauncher.xml
@@ -285,9 +346,9 @@ backgroundlauncher.xml
 </layer-list>
 A. Code Project Hello World
 A. Code Project Splash Screen
+
 '''
 package com.example.mobile_icon;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -347,6 +408,7 @@ public class activitySplash extends AppCompatActivity {
         t.schedule(tt,0, 100);
     }
 }
+
 '''
 B. Code Project Hello World
 activity_hello.xml
