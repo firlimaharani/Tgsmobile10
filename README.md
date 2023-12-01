@@ -135,78 +135,17 @@ Maka tampilan menu utama akan seperti ini :
 '''
 Setelah itu kita buka MainActivity.java untuk menambahkan code intent untuk masing-masing tombol :
 package com.example.mobile_icon;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.cdMenu4).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setAlarm();
-            }
-        });
-        findViewById(R.id.cdMenu1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Ketika tombolSatu ditekan, pindah ke HelloActivity
-                Intent helloworld = new Intent(MainActivity.this, HelloActivity.class);
-                startActivity(helloworld);
-            }
-        });
-        findViewById(R.id.cdMenu2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Ketika tombolDua ditekan, lakukan aksi yang diinginkan
-                // Misalnya, pindah ke aktivitas lain atau jalankan fungsi khusus
-                Intent toast = new Intent(MainActivity.this, CountActivity.class);
-                startActivity(toast);
-            }
-        });
-        findViewById(R.id.cdMenu3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Ketika tombolDua ditekan, lakukan aksi yang diinginkan
-                // Misalnya, pindah ke aktivitas lain atau jalankan fungsi khusus
-                Intent sianida = new Intent(MainActivity.this, SianidaActivity.class);
-                startActivity(sianida);
-            }
-        });
-        findViewById(R.id.cdMenu5).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Ketika tombolDua ditekan, lakukan aksi yang diinginkan
-                // Misalnya, pindah ke aktivitas lain atau jalankan fungsi khusus
-                Intent twoactivity = new Intent(MainActivity.this, TwoActivity.class);
-                startActivity(twoactivity);
-            }
-        });
-        findViewById(R.id.cdMenu6).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Example location: Jakarta, Indonesia
-                Uri geoLocation = Uri.parse("geo:-6.2088,106.8456");
-                openMaps(geoLocation);
-            }
-        });
-    }
-    private void setAlarm() {
-        Intent alarmIntent = new Intent(android.provider.AlarmClock.ACTION_SET_ALARM);
-        // Add extra details for the alarm, e.g., alarm time, label, etc.
-        // alarmIntent.putExtra(...
-        startActivity(alarmIntent);
-    }
-    private void openMaps(Uri geoLocation) {
-        Intent maps = new Intent(Intent.ACTION_VIEW);
-        maps.setData(geoLocation);
-        if (maps.resolveActivity(getPackageManager()) != null) {
-            startActivity(maps);
-        }
     }
 }
 Button HelloWorld, Count, Sianida dan TwoActivity menggunakan Explicit Intent, dan untuk project SetAlarm beserta Maps menggunakan Implicit Intent. Menu halaman utama dan tombol-tombol aplikasi sudah berhasil dibuat. Maka selanjutnya yang kita lakukan adalah menambahkan coding pada AndroidManifest.xml agar aplikasi dapat berjalan.
@@ -346,26 +285,69 @@ backgroundlauncher.xml
 </layer-list>
 A. Code Project Hello World
 A. Code Project Splash Screen
-SplashScreen.java
-
+'''
 package com.example.mobile_icon;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.ProgressBar;
+
 import androidx.appcompat.app.AppCompatActivity;
-public class SplashScreen extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatDelegate;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class activitySplash extends AppCompatActivity {
+    private static final int SPLASH_TIME_OUT = 10000;
+    ProgressBar pb;
+    int counter = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new Handler().postDelayed(new Runnable() {
+        setContentView(R.layout.activity_splash);
+        prog();
+
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+        final Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            startActivity(new Intent(getApplicationContext(), home.class));
+            finish();
+        }, 10000);
+
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+        if (getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
+
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(activitySplash.this, home.class);
+            startActivity(intent);
+            finish();
+        }, SPLASH_TIME_OUT);
+
+    }
+    public void prog(){
+        pb= findViewById(R.id.pb);
+        final Timer t = new Timer();
+        TimerTask tt=new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                finish();
+                counter++;
+                pb.setProgress(counter);
+
+                if (counter == 100)
+                    t.cancel();
             }
-        }, 2500);
+        };
+        t.schedule(tt,0, 100);
     }
 }
+'''
 B. Code Project Hello World
 activity_hello.xml
 
@@ -529,76 +511,91 @@ activity_two2activity.xml
 TwoActivity.java
 '''
 package com.example.mobile_icon;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-public class TwoActivity extends AppCompatActivity {
-    private static final String LOG_TAG = TwoActivity.class.getSimpleName();
-    public static final String EXTRA_MESSAGE = "com.example.android.Two2Activity.extra.MESSAGE";
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class pertamaActivity extends AppCompatActivity {
+
+    private static final String LOG_TAG = pertamaActivity.class.getCanonicalName();
+    public static final String EXTRA_MESSAGE = "com.example.android.KeduaActivity.extra.MESSAGE";
     public static final int TEXT_REQUEST = 1;
     private EditText mMessageEditText;
     private TextView mReplyHeadTextView;
     private TextView mReplyTextView;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_twoactivity);
+        setContentView(R.layout.activity_pertama);
+
         mMessageEditText = findViewById(R.id.editText_main);
         mReplyHeadTextView = findViewById(R.id.text_header_reply);
         mReplyTextView = findViewById(R.id.text_message_reply);
     }
-    public void LaunchSecondActivity(View view) {
-        Log.d(LOG_TAG, "Button clicked!");
-        Intent intent = new Intent(this, Two2Activity.class);
-        String message = mMessageEditText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivityForResult(intent, TEXT_REQUEST);
-    }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == TEXT_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                String reply = data.getStringExtra(Two2Activity.EXTRA_REPLY);
-                mReplyHeadTextView.setVisibility(View.VISIBLE);
-                mReplyTextView.setText(reply);
-                mReplyTextView.setVisibility(View.VISIBLE);
-            }
-        }
+
+    public void launchSecondActivity(View view) {
+        Intent intent = new Intent(this, KeduaActivity.class);
+        startActivity(intent);
     }
 }
+
 Two2Activity.java
 '''
 package com.example.mobile_icon;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-public class Two2Activity extends AppCompatActivity {
-    public static final String EXTRA_REPLY ="com.example.android.Two2Activity.extra.REPLY";
-    public static final String EXTRA_MESSAGE ="com.example.android.Two2Activity.extra.MESSAGE";
+
+public class KeduaActivity extends AppCompatActivity {
+    public static final String EXTRA_REPLY = "com.hello.extra.REPLY";
+    Button button_second;
     private EditText mReply;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_two2activity);
+        setContentView(R.layout.activity_kedua);
+
         mReply = findViewById(R.id.editText_second);
+
+
         Intent intent = getIntent();
-        String message = intent.getStringExtra(Two2Activity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(pertamaActivity.EXTRA_MESSAGE);
+
         TextView textView = findViewById(R.id.text_message);
         textView.setText(message);
+
+        button_second = findViewById(R.id.button_second);
+        button_second.setOnClickListener(v -> {
+            Intent intent1 = new Intent(
+                    KeduaActivity.this, pertamaActivity.class
+            );
+            startActivity(intent1);
+        });
+
+
     }
-    public void returnReply(View view){
-        String reply = mReply.getText().toString();
+
+    @Override
+    public void onBackPressed() {
         Intent replyIntent = new Intent();
+        String reply = mReply.getText().toString();
+        replyIntent.putExtra(EXTRA_REPLY, reply);
         setResult(RESULT_OK, replyIntent);
-        finish();
+        super.onBackPressed();
     }
 }
 Code Project SetAlarm dan Maps
@@ -717,36 +714,120 @@ Maps
 </LinearLayout>
 '''
 Lalu tambahkan code Implicit Intent pada MainActivity.java :
-
+'''
 SetAlarm
-findViewById(R.id.cdMenu4).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setAlarm();
-            }
-        });
-private void setAlarm() {
-        Intent alarmIntent = new Intent(android.provider.AlarmClock.ACTION_SET_ALARM);
-        // Add extra details for the alarm, e.g., alarm time, label, etc.
-        // alarmIntent.putExtra(...
-        startActivity(alarmIntent);
+package com.example.mobile_icon;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TimePicker;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Calendar;
+
+public class SetAlarm extends AppCompatActivity {
+    TimePicker alarmTimePicker;
+    PendingIntent pendingIntent;
+    AlarmManager alarmManager;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_set_alarm);
+
+        alarmTimePicker = findViewById(R.id.timePicker);
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
     }
-Maps
-findViewById(R.id.cdMenu6).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Example location: Jakarta, Indonesia
-                Uri geoLocation = Uri.parse("geo:-6.2088,106.8456");
-                openMaps(geoLocation);
+
+    public void OnToggleClicked(View view) {
+        long time;
+        if (((ToggleButton) view).isChecked()) {
+            Toast.makeText(SetAlarm.this, "ALARM ON", Toast.LENGTH_SHORT).show();
+            Calendar calendar = Calendar.getInstance();
+
+            calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getHour());
+            calendar.set(Calendar.MINUTE, alarmTimePicker.getMinute());
+
+            Intent intent = new Intent(this, AlarmReceiver.class);
+
+            pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+
+            time = (calendar.getTimeInMillis() - (calendar.getTimeInMillis() % 60000));
+            if (System.currentTimeMillis() > time) {
+
+                if (Calendar.AM_PM == 0)
+                    time = time + (1000 * 60 * 60 * 12);
+                else
+                    time = time + (1000 * 60 * 60 * 24);
             }
-        });
-private void openMaps(Uri geoLocation) {
-        Intent maps = new Intent(Intent.ACTION_VIEW);
-        maps.setData(geoLocation);
-        if (maps.resolveActivity(getPackageManager()) != null) {
-            startActivity(maps);
+
+            alarmManager.setRepeating(AlarmManager.RTC, time, 10000, pendingIntent);
+
+        } else {
+            alarmManager.cancel(pendingIntent);
+            Toast.makeText(SetAlarm.this, "ALARM OFF", Toast.LENGTH_SHORT).show();
         }
     }
+}
+'''
+Maps
+package com.example.mobile_icon;
+
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MapActivity extends AppCompatActivity {
+
+    private EditText etAwal, etTujuan;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_map);
+
+        etAwal = findViewById(R.id.etAwal);
+        etTujuan = findViewById(R.id.etTujuan);
+        ImageButton btnJalur = findViewById(R.id.btnJalur);
+
+        btnJalur.setOnClickListener(view -> {
+
+            String asal = etAwal.getText().toString();
+            String tujuan = etTujuan.getText().toString();
+
+            DisplayJalur(asal, tujuan);
+        });
+    }
+
+    private void DisplayJalur(String asal, String tujuan) {
+        try {
+            Uri uri = Uri.parse("https://www.google.co.in/maps/dir/" + asal + "/" + tujuan + "?entry=ttu");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.setPackage("com.google.android.apps.maps");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }catch (ActivityNotFoundException e){
+            Uri uri = Uri.parse("https://www.google.com/maps");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+
+    }
+}
+
 Selanjutnya buka AndroidManifest.xml dan tambahkan code untuk izin membuka Alarm :
 
 <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
@@ -763,6 +844,7 @@ Tambahkan code berikut pada bagian application agar set alarm dapat berjalan :
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+'''
 Hasil Run
 Berikut adalah hasil running dari aplikasi yang telah saya buat :
  
