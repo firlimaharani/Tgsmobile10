@@ -16,6 +16,7 @@ dengan tambahan memanggil method Maps
 
 dengan tampilan sebagai berikut :
 
+![logo image](https://github.com/firlimaharani/Tgsmobile10/assets/130529482/1f4f09aa-e530-4463-babc-e2f876e65113)
 launcherlogo
 
 1. Menu Utama
