@@ -314,6 +314,7 @@ Colors.xml
     <color name="soft">#AED9EA</color>
     <color name="pastel">#5E96AE</color>
 </resources>
+
 '''
 Dimens.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -321,8 +322,9 @@ Dimens.xml
     <dimen name="padding_regular">10dp</dimen>
     <dimen name="line_spacing">5sp</dimen>
 </resources>
-Pada menu themes :
+
 '''
+Pada menu themes :
 themes.xml
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
@@ -331,9 +333,9 @@ themes.xml
         <item name="android:statusBarColor">?attr/colorOnPrimary</item>
     </style>
 </resources>
+
 '''
 Pada menu drawable :
-
 backgroundlauncher.xml
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
@@ -344,10 +346,9 @@ backgroundlauncher.xml
             android:gravity="center" />
     </item>
 </layer-list>
+'''
 A. Code Project Hello World
 A. Code Project Splash Screen
-
-'''
 package com.example.mobile_icon;
 import android.content.Intent;
 import android.os.Bundle;
