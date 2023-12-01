@@ -251,7 +251,8 @@ Pertama yang harus kita lakukan adalah mengganti tampilan menu utamanya dengan c
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
-Maka tampilan menu utama akan seperti ini : tampilan
+Maka tampilan menu utama akan seperti ini : 
+![WhatsApp Image 2023-12-01 at 08 09 37](https://github.com/firlimaharani/Tgsmobile10/assets/130529482/ec011bc3-47df-4d03-97a8-68e093bd7c82)
 Setelah itu kita buka MainActivity.java untuk menambahkan code intent untuk masing-masing tombol :
 package com.example.mobile_icon;
 import android.content.Intent;
