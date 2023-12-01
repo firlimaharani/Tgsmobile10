@@ -825,5 +825,8 @@ Tambahkan code berikut pada bagian application agar set alarm dapat berjalan :
         </activity>
 Hasil Run
 Berikut adalah hasil running dari aplikasi yang telah saya buat :
- Video.project.icon.mp4 
+ 
+https://github.com/firlimaharani/Tgsmobile10/assets/130529482/6f9345bf-a823-4bd1-8ec0-50e9ae23fc1e
+
+
 Finish, Terima Kasih
